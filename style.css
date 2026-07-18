@@ -1,0 +1,593 @@
+ /* ==========================
+   Smart Student Portal
+   Main Style Sheet
+========================== */
+
+/* Google Font */
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #f4f7fc;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eef2f7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0b5ed7;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    transition: .3s;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #0d6efd, #4f8dfd);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 25px; /* مسافة أمان مريحة من اليسار لتمنع الروابط من الالتصاق بها */
+}
+
+.navbar-brand img { 
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.navbar-brand img:hover {
+    transform: rotate(10deg) scale(1.08);
+}
+  
+.navbar-collapse {
+    width: 100%;
+}
+
+.navbar-nav {
+    display: flex !important;
+    align-items: center;
+    gap: 18px;
+}
+ 
+.nav-link {
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url("../images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: #0b3d91;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #2c3e50;
+    line-height: 35px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #0d6efd;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 28px;
+    transition: .4s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, .35);
+}
+
+/* ==========================
+   Sidebar (معدل لليسار)
+========================== */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0d6efd, #0b3d91);
+    color: #fff;
+    padding: 25px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 5px 0 20px rgba(0,0,0,.15);
+    z-index: 1045;
+}
+
+/* ترك مسافة للمحتوى الرئيسي ليظهر بجانب السايدبار في الشاشات الكبيرة من جهة اليسار */
+@media(min-width: 992px) {
+    .main-content {
+        margin-left: 260px !important;  
+        margin-right: 0 !important;
+        padding-left: 20px;            
+    }
+    /* 🟢 كلاس سحري جديد: يلغي الهامش تماماً في الصفحات الخالية من السايدبار لتبدو متناسقة بالمنتصف */
+    .main-content.no-sidebar {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 20px;
+    }
+}
+
+/* تحويل السايدبار إلى قائمة منبثقة تختفي وتظهر في الموبايل والشاشات الصغيرة (من جهة اليسار) */
+@media(max-width: 992px) {
+    .sidebar {
+        position: fixed !important;
+        width: 280px;
+        transform: translateX(-100%); 
+        transition: transform .3s ease-in-out;
+    }
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}   
+
+/* ==========================
+   Cards
+========================== */
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card-header {
+    background: #0d6efd;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+/* ==========================
+   Forms
+========================== */
+.form-control {
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 10px rgba(13,110,253,.25);
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+/* ==========================
+   Tables
+========================== */
+.table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: #0d6efd;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background: #eef5ff;
+}
+
+/* ==========================
+   Footer
+========================== */
+.footer {
+    background: linear-gradient(90deg, #0d6efd, #0b3d91);
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer h5 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: #e8efff;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: white;
+}
+
+.footer ul li a:hover {
+    color: #ffd54f;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    background: white;
+    color: #0d6efd;
+    border-radius: 50%;
+    margin-left: 8px;
+    transition: .35s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+    background: #ffd54f;
+    color: #000;
+}
+
+.text-center {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ==========================
+   Animations
+========================== */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating Effect */
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: .4s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+}
+
+.dashboard-card i {
+    font-size: 50px;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+.dashboard-card h3 {
+    font-weight: bold;
+}
+
+.dashboard-card p {
+    color: #666;
+}
+
+/* Login & Register */
+.login-box {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 12px;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+}
+
+/* Section Title */
+.section-title {
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: #ffd54f;
+    display: block;
+    margin-top: 8px;
+    border-radius: 20px;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 35px;
+    font-weight: bold;
+    color: #0d3b66;
+    margin-bottom: 30px;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive */
+@media(max-width:992px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+    .hero {
+        text-align: center;
+        padding: 40px 20px;
+    }
+    .hero h1 { font-size: 35px; }
+    .navbar-brand { font-size: 20px; }
+}
+
+@media(max-width:768px) {
+    .footer { text-align: center; }
+    .social-icons { margin-top: 20px; }
+    .dashboard-card { margin-bottom: 20px; }
+    .hero h1 { font-size: 30px; }
+    .hero p { font-size: 18px; }
+}
+
+@media(max-width:576px) {
+    .btn-primary { width: 100%; }
+    .login-box { padding: 20px; }
+    .page-title { font-size: 28px; }
+}
+
+/* إضافة تأثير نبض الجرس لعدّاد الإشعارات الأحمر في السايدبار */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+    }
+    70% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 6px rgba(220, 53, 69, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+.pulse-badge {
+    animation: pulse 1.8s infinite;
+}
+
+/* ==========================================
+   تنسيقات الوضع الليلي (Dark Mode) الشامل والآمن لجميع الصفحات
+========================================== */
+body.dark-mode {
+    background-color: #0f172a !important; 
+    color: #f1f5f9 !important;
+}
+
+/* منع بهتان نصوص القوائم والـ Navbar في الوضع الليلي */
+body.dark-mode .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+/* بطاقات لوحة التحكم والملف الشخصي في الوضع المظلم */
+body.dark-mode .card,
+body.dark-mode .dashboard-card {
+    background-color: #1e293b !important; 
+    color: #ffffff !important;
+    border: 1px solid #334155 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* نصوص العناوين الداكنة لتكون ناصعة وواضحة جداً */
+body.dark-mode .text-dark,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .page-title,
+body.dark-mode .fw-bold {
+    color: #ffffff !important; /* لون أبيض ناصع وواضح للغاية */
+}
+
+/* جعل نصوص البراجراف والكروت واللوحة الجانبية شديدة الوضوح */
+body.dark-mode p,
+body.dark-mode .lead,
+body.dark-mode span,
+body.dark-mode label,
+body.dark-mode td,
+body.dark-mode th {
+    color: #f1f5f9 !important; /* لون فضي ناصع */
+}
+
+/* 🟢 إصلاح صفحة الملف الشخصي (Profile) والقوائم */
+body.dark-mode .list-group-item {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+}
+body.dark-mode .list-group-item * {
+    color: #f1f5f9 !important;
+}
+
+/* ==========================================
+   حل مشكلة الجداول الشامل في الوضع المظلم
+========================================== */
+
+/* إعادة ضبط الجداول والخلفيات للتوافق مع الوضع المظلم */
+body.dark-mode .table,
+body.dark-mode .table-responsive,
+body.dark-mode .table thead,
+body.dark-mode .table tbody,
+body.dark-mode .table tr,
+body.dark-mode .table td,
+body.dark-mode .table th {
+    background-color: #1e293b !important;
+    background: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+}
+
+/* استهداف وإلغاء تأثير كلاسات ألوان الخطوط الثابتة من Bootstrap في كل الصفحات */
+body.dark-mode td.text-dark,
+body.dark-mode .text-dark,
+body.dark-mode td.text-muted,
+body.dark-mode .text-muted,
+body.dark-mode td.text-secondary,
+body.dark-mode .text-secondary,
+body.dark-mode td a,
+body.dark-mode a.text-dark {
+    color: #f1f5f9 !important;
+}
+
+/* 🔥 الإصلاح السحري للأزرار والبادجات والعناصر البيضاء أينما وجدت لتقرأ نصوصها بوضوح 🔥 */
+body.dark-mode .btn-light,
+body.dark-mode .btn-light *,
+body.dark-mode .bg-light,
+body.dark-mode .bg-light *,
+body.dark-mode [class*="bg-white"],
+body.dark-mode [class*="bg-white"] *,
+body.dark-mode .badge.bg-light,
+body.dark-mode .badge.bg-white {
+    background-color: #ffffff !important;
+    color: #1e293b !important; /* إجبار النصوص داخل العناصر البيضاء لتكون داكنة ومقروءة */
+}
+
+/* استثناء لحماية نصوص الأزرار والبادجات الملونة (أحمر، أخضر، أزرق) */
+body.dark-mode .btn:not(.btn-light),
+body.dark-mode .btn:not(.btn-light) *,
+body.dark-mode .badge:not(.bg-light):not([class*="bg-white"]),
+body.dark-mode .badge:not(.bg-light):not([class*="bg-white"]) * {
+    color: inherit !important;
+    background-color: unset; /* الحفاظ على ألوان خلفيات الأزرار والبادجات الملونة */
+}
+
+/* تحسين تأثير تمرير الفأرة على أسطر الجدول */
+body.dark-mode .table tbody tr:hover,
+body.dark-mode .table tbody tr:hover td {
+    background-color: #2a3a52 !important;
+}
+
+/* ==========================================
+   باقي التنسيقات العامة للوضع المظلم
+========================================== */
+
+/* تعديل النصوص الفرعية والملاحظات لتبقي مرئية وممتازة القراءة */
+body.dark-mode .form-text {
+    color: #cbd5e1 !important; /* لون رمادي فاتح مريح وليس فاهياً */
+}
+
+/* تعديل خلفية الحقول (Inputs) في الوضع المظلم */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+}
+body.dark-mode .form-control::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* حماية الحقول المغلقة أو المعدة للقراءة فقط (Readonly & Disabled) في الملف الشخصي */
+body.dark-mode .form-control:disabled,
+body.dark-mode .form-control[readonly],
+body.dark-mode input:disabled,
+body.dark-mode input[readonly] {
+    background-color: #334155 !important;
+    color: #cbd5e1 !important;
+    border-color: #475569 !important;
+}
+
+/* جعل السايدبار في الوضع المظلم أكثر تباينًا وجمالاً */
+body.dark-mode .sidebar {
+    background: linear-gradient(180deg, #1e293b, #0f172a) !important;
+    border-right: 1px solid #334155;
+}
